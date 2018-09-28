@@ -30,20 +30,22 @@ export class PainelComponent implements OnInit {
 
   public verificarResposta() :void {
     if (this.rodadaFrase.frasePtBr == this.resposta) {
-      if (this.rodada < this.frases.length-1) {
-        this.rodada++
-        this.rodadaFrase = this.frases[ this.rodada ]
+        if (this.rodada < this.frases.length - 1) {
+          this.atualizaRodada()
+        }
         this.progresso = this.progresso + 25
         this.resposta = ""
         alert("A frase está correta!")
-      } else {
-        this.progresso = this.progresso + 25
-        this.resposta = ""
-        alert("A frase está correta!")
-      }
+        console.log(this.rodada)
     } else {
       alert("A frase está errada")
+      console.log(this.rodada)
     }    
+  }
+
+  public atualizaRodada(): void {
+    this.rodada++
+    this.rodadaFrase = this.frases[ this.rodada ]
   }
 
 }
